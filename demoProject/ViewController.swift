@@ -18,10 +18,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Get keyboard notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardNotification:", name: UIKeyboardWillChangeFrameNotification, object: nil)
         
-        // Create a reference to a Firebase location
+        // Firebase url
         let myRootRef = Firebase(url:"https://vivid-heat-1028.firebaseio.com")
         
         // Read data and react to changes
@@ -34,20 +35,26 @@ class ViewController: UIViewController {
     }
     
     deinit {
+        // Un-get keyboard notifications
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    
+   // Called when button is pressed
    @IBAction func sendData(sender: AnyObject){
-       
+    
+        // Get textfield string
         let myString = myTextField.text
-        let myRootRef = Firebase(url:"https://vivid-heat-1028.firebaseio.com")
+    
         // Write data to Firebase
+        let myRootRef = Firebase(url:"https://vivid-heat-1028.firebaseio.com")
         myRootRef.setValue(myString)
+    
+        // Clear text field
         myTextField.text = ""
         
     }
     
+    // Makes the text field move when keyboard is shown. I don't understand how it works, I just found it on the internet
     func keyboardNotification(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
