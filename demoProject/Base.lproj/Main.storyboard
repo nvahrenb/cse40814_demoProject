@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,24 +19,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBs-DG-6nu">
-                                <rect key="frame" x="279" y="289" width="42" height="21"/>
+                                <rect key="frame" x="279" y="28" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dge-xa-lpY">
-                                <rect key="frame" x="252" y="318" width="97" height="30"/>
+                                <rect key="frame" x="20" y="550" width="506" height="30"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="6ms-H1-Lod"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUb-yI-hWM">
-                                <rect key="frame" x="277" y="356" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUb-yI-hWM">
+                                <rect key="frame" x="534" y="550" width="46" height="30"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="FdN-x1-XB2"/>
+                                </constraints>
                                 <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="sendData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BbI-Yo-r0n"/>
@@ -45,15 +46,17 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wBs-DG-6nu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7I1-1b-JXr"/>
-                            <constraint firstItem="dge-xa-lpY" firstAttribute="centerX" secondItem="wBs-DG-6nu" secondAttribute="centerX" id="C5W-CI-2i0"/>
-                            <constraint firstItem="dge-xa-lpY" firstAttribute="top" secondItem="wBs-DG-6nu" secondAttribute="bottom" constant="8" symbolic="YES" id="g6g-Eg-j6w"/>
-                            <constraint firstItem="RUb-yI-hWM" firstAttribute="top" secondItem="dge-xa-lpY" secondAttribute="bottom" constant="8" symbolic="YES" id="lg4-tw-KW2"/>
-                            <constraint firstItem="dge-xa-lpY" firstAttribute="centerX" secondItem="RUb-yI-hWM" secondAttribute="centerX" id="m7s-Ui-6hM"/>
-                            <constraint firstItem="dge-xa-lpY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tV1-Pp-d52"/>
+                            <constraint firstItem="RUb-yI-hWM" firstAttribute="top" secondItem="dge-xa-lpY" secondAttribute="top" id="0WV-za-osv"/>
+                            <constraint firstItem="RUb-yI-hWM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3d2-bQ-Gqn"/>
+                            <constraint firstItem="dge-xa-lpY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Cb3-dQ-Fg8"/>
+                            <constraint firstItem="RUb-yI-hWM" firstAttribute="leading" secondItem="dge-xa-lpY" secondAttribute="trailing" constant="8" symbolic="YES" id="DNe-CC-REd"/>
+                            <constraint firstItem="wBs-DG-6nu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PXw-lW-Tn9"/>
+                            <constraint firstItem="wBs-DG-6nu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="kFn-lU-jov"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dge-xa-lpY" secondAttribute="bottom" constant="20" id="yjl-8G-6x8"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="yjl-8G-6x8" id="dZb-3l-FGg"/>
                         <outlet property="myButton" destination="RUb-yI-hWM" id="hKa-KH-8io"/>
                         <outlet property="myLabel" destination="wBs-DG-6nu" id="N65-xP-qvA"/>
                         <outlet property="myTextField" destination="dge-xa-lpY" id="g3i-Kb-9De"/>
@@ -61,6 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="380" y="265"/>
         </scene>
     </scenes>
 </document>
