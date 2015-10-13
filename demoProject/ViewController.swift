@@ -12,17 +12,15 @@ import Firebase
 class ViewController: UIViewController {
     
     @IBOutlet weak var myLabel: UILabel!
-    //@IBOutlet weak var myTextField: UITextField!
-    //@IBOutlet weak var myButton: UIButton!
+    @IBOutlet weak var myTextField: UITextField!
+    @IBOutlet weak var myButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         // Create a reference to a Firebase location
-        var myRootRef = Firebase(url:"https://vivid-heat-1028.firebaseio.com")
-        // Write data to Firebase
-        myRootRef.setValue("test string")
+        let myRootRef = Firebase(url:"https://vivid-heat-1028.firebaseio.com")
         
         // Read data and react to changes
         myRootRef.observeEventType(.Value, withBlock: {
@@ -33,14 +31,15 @@ class ViewController: UIViewController {
         
     }
     
-   /* @IBAction func sendData(sender: AnyObject){
+   @IBAction func sendData(sender: AnyObject){
        
-        var myString = myTextField.text
-        var myRootRef = Firebase(url:"https://vivid-heat-1028.firebaseio.com")
+        let myString = myTextField.text
+        let myRootRef = Firebase(url:"https://vivid-heat-1028.firebaseio.com")
         // Write data to Firebase
         myRootRef.setValue(myString)
+        myTextField.text = ""
         
-    }*/
+    }
 
 }
 
