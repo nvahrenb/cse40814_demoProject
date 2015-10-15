@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         myRootRef.observeEventType(.Value, withBlock: {
             snapshot in
             print("\(snapshot.key) -> \(snapshot.value)")
-            self.myLabel.text = snapshot.value as! String
+            self.myLabel.text = snapshot.value as? String
         })
         
     }
