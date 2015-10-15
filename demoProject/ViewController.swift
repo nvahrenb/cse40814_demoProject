@@ -62,7 +62,7 @@ class ViewController: UIViewController {
             let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
             let animationCurveRaw = animationCurveRawNSN?.unsignedLongValue ?? UIViewAnimationOptions.CurveEaseInOut.rawValue
             let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
-            self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+            self.keyboardHeightLayoutConstraint?.constant = (endFrame?.size.height)!+10 ?? 0.0
             UIView.animateWithDuration(duration,
                 delay: NSTimeInterval(0),
                 options: animationCurve,
